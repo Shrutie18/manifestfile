@@ -2,8 +2,9 @@ apiVersion:  v1
 kind: Pod
 metadata:  
      labels:
-       app: mypod3
-        name: mypod3
+      name: mypod3
+      app: mypod3
+
 spec:
  containers:
     - name: mypod-cont3
@@ -20,11 +21,11 @@ spec:
       apiVersion: v1 
       kind: Service
       metadata:
-              name: lb  
+              name: podnodeport 
       spec:
           selector:
                 app: mypod3 
-          type: LoadBalancer 
+          type: NodePort 
           ports:
           - protocol: TCP
             port: 80
