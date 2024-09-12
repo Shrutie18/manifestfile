@@ -6,11 +6,11 @@ spec:
       container:
         -name: mypod-cont1
         image:  nginx:latest
-        resources
+        resources:
             requests:
                 cpu: "50m"
                 memory: "100Mi"
         ports:
-            -name: http
+          - name: http
             containerPort: 80
             protocol tcp: TCP
