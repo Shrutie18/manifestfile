@@ -1,19 +1,19 @@
 apiVersion: v1  
 kind: Pod
 metadata:  
-     labels:
-       name: mypod4
+      name: mypod4
+      labels:
        app: mypod4
 spec:
  containers:
-      -name: mypod-nginx
+    - name: mypod-nginx
       image: nginx:latest
       resources: 
           requests:
             cpu: "50m"
             memory: "90Mi"        
       ports:  
-          -name: http
+        - name: http
           containerPort: 80
           protocol: TCP
           
