@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind:  Service
 metadata: 
-    name: nodeport
+    name: loadbalancer
     namespace: weatherappprodenv
 spec:
-    type: NodePort  
+    type: LoadBalancer  
     selector: 
       app: newapp
     ports:
