@@ -9,7 +9,7 @@ metadata:
 spec:
  containers:
     - name: mypodcont1
-      image: nginx:latest
+      image: shruti786/todo:micro
       resources: 
           requests:
             cpu: "50m"
