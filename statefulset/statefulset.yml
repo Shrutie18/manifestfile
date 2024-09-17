@@ -14,7 +14,7 @@ spec:
             app:  stateful
       spec:
         containers:
-            - name: mypod-stateful-cont
+            - name: mypodstateful-cont
               image: mysql:latest
               resources: 
                   requests:
@@ -25,7 +25,7 @@ spec:
                   containerPort: 3306
                   protocol: TCP
               env:
-                 - name: MYSQL_ROOT_PASSWD
+                 - name: MYSQL_ROOT_PASSWORD
                    value: "1234"
     selector:
         matchLabels:
