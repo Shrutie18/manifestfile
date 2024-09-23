@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: primary-app
+  name: a-deployment
   labels:
     app: my-app
-    version: v1
+    version: a
 spec:
-  replicas: 3
+  replicas: 3   # Number of replicas for stable version
   selector:
     matchLabels:
       app: my-app
-      version: v1
+      version: a
   template:
     metadata:
       labels:
         app: my-app
-        version: v1
+        version: a
     spec:
       containers:
       - name: my-app
-        image: nginx:latest  # Production version
+        image: nginx:latest  # Stable version image
         ports:
         - containerPort: 80

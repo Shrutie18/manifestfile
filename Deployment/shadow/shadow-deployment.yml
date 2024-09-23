@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shadow-app
+  name: b-deployment
   labels:
     app: my-app
-    version: v2
+    version: b
 spec:
-  replicas: 1
+  replicas: 3   # Number of replicas for shadow version
   selector:
     matchLabels:
       app: my-app
-      version: v2
+      version: b
   template:
     metadata:
       labels:
         app: my-app
-        version: v2
+        version: b
     spec:
       containers:
       - name: my-app
-        image: shruti786/todo:micro  # Shadow version
+        image: shruti786/todo:micro  # Shadow version image (v2.0)
         ports:
         - containerPort: 80
+
