@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: my-app
+spec:
+  hosts:
+  - "my-app"
+  http:
+  - route:
+    - destination:
+        host: my-app
+        subset: stable   # Main traffic goes to stable version
+      weight: 100        # All user traffic goes to the stable version
+    mirror:
+      host: my-app
+      subset: shadow     # Mirror traffic to shadow version (v2.0)
+    mirrorPercentage:
+      value: 100         # Mirror 100% of traffic to the shadow version
