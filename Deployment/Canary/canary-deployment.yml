@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: canary
+  labels:
+    app: my-app
+    version: b
+spec:
+  replicas: 1   # 10% of traffic, 1 replica
+  selector:
+    matchLabels:
+      app: my-app
+      version: b
+  template:
+    metadata:
+      labels:
+        app: my-app
+        version: b
+    spec:
+      containers:
+      - name: my-app
+        image: shruti786/todo:micro   # Canary version image
+        ports:
+        - containerPort: 80

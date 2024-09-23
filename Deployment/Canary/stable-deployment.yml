@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stable
+  labels:
+    app: my-app
+    version: a
+spec:
+  replicas: 9   # 90% of traffic, 9 replicas
+  selector:
+    matchLabels:
+      app: my-app
+      version: a
+  template:
+    metadata:
+      labels:
+        app: my-app
+        version: a
+    spec:
+      containers:
+      - name: my-app
+        image: nginx:latest   # Stable version image
+        ports:
+        - containerPort: 80
