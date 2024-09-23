@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+        name: todoapp
+        labels:
+            app: todoapp
+spec:
+    replicas: 14
+    strategy: 
+        type: RollingUpdate 
+    template:
+          metadata: 
+                name: todoapp 
+                labels:
+                      app: todoapp
+          spec:
+              containers:
+                  - name: http
+                    image: shruti786/todo:micro
+                    ports:
+                        - name: http
+                          containerPort: 80
+                          protocol: TCP      
+    selector:
+        matchLabels:
+            app: todoapp
