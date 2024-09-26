@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: studentapp-ingress
+  name: todoapp-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: studentapp.example.com
+  - host: todoapp.example.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name:  studentapp-service
+            name:  todoapp-service
             port:
               number: 80
