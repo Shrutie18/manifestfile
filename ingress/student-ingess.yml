@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: student-ingress
+  name: studentapp-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: student.example.com
+  - host: studentapp.example.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: student-microservice-service
+            name:  studentapp-service
             port:
               number: 80

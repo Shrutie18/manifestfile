@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: student-microservice
+    name: studentapp
 spec:
    replicas: 2
   selector:
     matchLabels:
-       app: student-microservice
+       app: studentapp
 template:
     metadata:
     labels:
-    app: student-microservice
+    app: studentapp
 spec:
      containers:
-    - name: student-microservice
-     image: <your-registry>/student-microservice:latest
+    - name: studentapp
+     image: shruti786/student
 ports:
      - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: student-microservice-service
+  name: studentapp-service
 spec:
   selector:
-    app: student-microservice
+    app: studentapp
 ports:
     - protocol: TCP
       port: 80
