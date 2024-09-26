@@ -12,8 +12,8 @@ template:
     labels:
     app: studentapp
 spec:
-     containers:
-    - name: studentapp
+    container:
+      - name: studentapp
      image: shruti786/student
 ports:
      - containerPort: 8080
