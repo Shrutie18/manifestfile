@@ -14,7 +14,7 @@ spec:
     spec:
       containers: # corrected from 'container' to 'containers'
         - name: studentapp
-          image: shruti786/student
+          image: shruti786/student:micro
           ports:
             - containerPort: 8080
 ---
