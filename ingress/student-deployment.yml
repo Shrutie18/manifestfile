@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: student-microservice
+    name: student-microservice
 spec:
-  replicas: 2
+   replicas: 2
   selector:
     matchLabels:
-      app: student-microservice
-  template:
+       app: student-microservice
+template:
     metadata:
-      labels:
-        app: student-microservice
-    spec:
-      containers:
-      - name: student-microservice
-        image: <your-registry>/student-microservice:latest
-        ports:
-        - containerPort: 8080
+    labels:
+    app: student-microservice
+spec:
+     containers:
+    - name: student-microservice
+     image: <your-registry>/student-microservice:latest
+ports:
+     - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -25,8 +25,8 @@ metadata:
 spec:
   selector:
     app: student-microservice
-  ports:
+ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
-  type: ClusterIP
+ type: ClusterIP
